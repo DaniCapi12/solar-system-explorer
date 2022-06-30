@@ -22,7 +22,7 @@ async function getPlanetData() {
 
         fs.writeFile("planetData.json", JSON.stringify(ret), (error: Error) => {
             if (error) {
-                console.log("Couldn't create planetData.json.");
+                console.error(error);
             }
             else {
                 console.log("Successfully created planetData.json.");
