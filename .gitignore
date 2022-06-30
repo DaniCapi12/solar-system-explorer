@@ -1,0 +1,7 @@
+node_modules
+index.js
+package-lock.json
+package.json
+planetData.json
+tsmdb.7z
+tsconfig.json

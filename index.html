@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar System Explorer</title>
+
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        img {
+            display: inline-block;
+            object-fit: cover;
+            width: 70vh;
+            height: 69vh;
+            border-width: 0;
+        }
+
+        ul {
+            display: inline-block;
+        }
+
+        header nav ul li {
+            display: inline-block;
+        }
+
+        main {
+            text-align: center;
+        }
+
+        main ul {
+            text-align: left;
+        }
+
+        button {
+            background-color: darkblue;
+            color: white;
+            border-style: solid;
+            border-radius: 5px;
+            border-color: darkblue;
+        }
+
+        button:hover {
+            background-color: white;
+            color: darkblue;
+            border-style: solid;
+            border-radius: 5px;
+            border-color: darkblue;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SOLAR SYSTEM EXPLORER</h1>
+        <nav>
+            <ul>
+                <li><button id="Mercury">Mercury</button></li>
+                <li><button id="Venus">Venus</button></li>
+                <li><button id="Earth">Earth</button></li>
+                <li><button id="Mars">Mars</button></li>
+                <li><button id="Jupiter">Jupiter</button></li>
+                <li><button id="Saturn">Saturn</button></li>
+                <li><button id="Uranus">Uranus</button></li>
+                <li><button id="Neptune">Neptune</button></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <img id="image" src="https://spaceplace.nasa.gov/gallery-sun/en/solar-flare.en.jpg" width="50%" height="50%">
+        <ul>
+            <h2>DATA</h2>
+            <li id="OrderFromSun">Order from sun: 0</li>
+            <li id="HasRings">Has rings: false</li>
+            <li id="Atmosphere">Main atmosphere: []</li>
+            <li id="SurfaceTemperature">Surface temperature(in C): ["min":null,"max":null,"mean":5500]</li>
+        </ul>
+    </main>
+
+    <script>
+        async function main () {
+            const planetData = await (await fetch("http://localhost:3000/planetData.json")).json();
+
+            document.getElementById("Mercury").onclick = () => {
+                document.getElementById("OrderFromSun").innerText = "Order from sun: " + JSON.stringify(planetData[0].orderFromSun);
+                document.getElementById("HasRings").innerText = "Has rings: " + JSON.stringify(planetData[0].hasRings);
+                document.getElementById("Atmosphere").innerText = "Main atmosphere: " + JSON.stringify(planetData[0].mainAtmosphere);
+                document.getElementById("SurfaceTemperature").innerText = "Surface temperature(in C): " + JSON.stringify(planetData[0].surfaceTemperatureC);
+                document.getElementById("image").src = "https://solarsystem.nasa.gov/system/resources/detail_files/771_PIA16853.jpg";
+            }
+
+            document.getElementById("Venus").onclick = () => {
+                document.getElementById("OrderFromSun").innerText = "Order from sun: " + JSON.stringify(planetData[3].orderFromSun);
+                document.getElementById("HasRings").innerText = "Has rings: " + JSON.stringify(planetData[3].hasRings);
+                document.getElementById("Atmosphere").innerText = "Main atmosphere: " + JSON.stringify(planetData[3].mainAtmosphere);
+                document.getElementById("SurfaceTemperature").innerText = "Surface temperature(in C): " + JSON.stringify(planetData[3].surfaceTemperatureC);
+                document.getElementById("image").src = "https://solarsystem.nasa.gov/system/resources/detail_files/688_Venus.jpg";
+            }
+
+            document.getElementById("Earth").onclick = () => {
+                document.getElementById("OrderFromSun").innerText = "Order from sun: " + JSON.stringify(planetData[2].orderFromSun);
+                document.getElementById("HasRings").innerText = "Has rings: " + JSON.stringify(planetData[2].hasRings);
+                document.getElementById("Atmosphere").innerText = "Main atmosphere: " + JSON.stringify(planetData[2].mainAtmosphere);
+                document.getElementById("SurfaceTemperature").innerText = "Surface temperature(in C): " + JSON.stringify(planetData[2].surfaceTemperatureC);
+                document.getElementById("image").src = "https://solarsystem.nasa.gov/system/resources/detail_files/2332_earth_dscovr_apr19_med.jpg";
+            }
+
+            document.getElementById("Mars").onclick = () => {
+                document.getElementById("OrderFromSun").innerText = "Order from sun: " + JSON.stringify(planetData[1].orderFromSun);
+                document.getElementById("HasRings").innerText = "Has rings: " + JSON.stringify(planetData[1].hasRings);
+                document.getElementById("Atmosphere").innerText = "Main atmosphere: " + JSON.stringify(planetData[1].mainAtmosphere);
+                document.getElementById("SurfaceTemperature").innerText = "Surface temperature(in C): " + JSON.stringify(planetData[1].surfaceTemperatureC);
+                document.getElementById("image").src = "https://solarsystem.nasa.gov/system/resources/detail_files/948_mars_july18.jpg";
+            }
+
+            document.getElementById("Jupiter").onclick = () => {
+                document.getElementById("OrderFromSun").innerText = "Order from sun: " + JSON.stringify(planetData[5].orderFromSun);
+                document.getElementById("HasRings").innerText = "Has rings: " + JSON.stringify(planetData[5].hasRings);
+                document.getElementById("Atmosphere").innerText = "Main atmosphere: " + JSON.stringify(planetData[5].mainAtmosphere);
+                document.getElementById("SurfaceTemperature").innerText = "Surface temperature(in C): " + JSON.stringify(planetData[5].surfaceTemperatureC);
+                document.getElementById("image").src = "https://solarsystem.nasa.gov/system/resources/detail_files/2486_stsci-h-p1936a_1800.jpg";
+            }
+
+            document.getElementById("Saturn").onclick = () => {
+                document.getElementById("OrderFromSun").innerText = "Order from sun: " + JSON.stringify(planetData[4].orderFromSun);
+                document.getElementById("HasRings").innerText = "Has rings: " + JSON.stringify(planetData[4].hasRings);
+                document.getElementById("Atmosphere").innerText = "Main atmosphere: " + JSON.stringify(planetData[4].mainAtmosphere);
+                document.getElementById("SurfaceTemperature").innerText = "Surface temperature(in C): " + JSON.stringify(planetData[4].surfaceTemperatureC);
+                document.getElementById("image").src = "https://solarsystem.nasa.gov/system/resources/detail_files/2490_stsci-h-p1943a-f_1200.jpg";
+            }
+
+            document.getElementById("Uranus").onclick = () => {
+                document.getElementById("OrderFromSun").innerText = "Order from sun: " + JSON.stringify(planetData[7].orderFromSun);
+                document.getElementById("HasRings").innerText = "Has rings: " + JSON.stringify(planetData[7].hasRings);
+                document.getElementById("Atmosphere").innerText = "Main atmosphere: " + JSON.stringify(planetData[7].mainAtmosphere);
+                document.getElementById("SurfaceTemperature").innerText = "Surface temperature(in C): " + JSON.stringify(planetData[7].surfaceTemperatureC);
+                document.getElementById("image").src = "https://solarsystem.nasa.gov/system/resources/detail_files/599_PIA18182.jpg";
+            }
+
+            document.getElementById("Neptune").onclick = () => {
+                document.getElementById("OrderFromSun").innerText = "Order from sun: " + JSON.stringify(planetData[6].orderFromSun);
+                document.getElementById("HasRings").innerText = "Has rings: " + JSON.stringify(planetData[6].hasRings);
+                document.getElementById("Atmosphere").innerText = "Main atmosphere: " + JSON.stringify(planetData[6].mainAtmosphere);
+                document.getElementById("SurfaceTemperature").innerText = "Surface temperature(in C): " + JSON.stringify(planetData[6].surfaceTemperatureC);
+                document.getElementById("image").src = "https://solarsystem.nasa.gov/system/resources/detail_files/611_PIA01492.jpg";
+            }
+        }
+
+        main()
+    </script>
+</body>
+</html>
