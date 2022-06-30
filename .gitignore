@@ -5,3 +5,4 @@ package.json
 planetData.json
 tsmdb.7z
 tsconfig.json
+.gitignore
